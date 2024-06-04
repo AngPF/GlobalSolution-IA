@@ -1,0 +1,9 @@
+0 Starfish
+1 Squid
+2 SeaTurtle
+3 Oyster
+4 Lobster
+5 JellyFish
+6 HarborSeal
+7 GoldFish
+8 Fish

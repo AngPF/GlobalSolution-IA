@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconhecimento de Imagem</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #0B6563; text-align: center; padding: 20px; color: #0B6563;">
+    <h1 style="color: #FFFFFF;">Reconhecimento de Espécie Marinha</h1>
+
+    <p style="font-size: 16px; color: #FFFFFF; margin: 20px;">Basta fazer o upload da imagem do animal que deseja prever e clicar no botão de enviar imagem.</p>
+    
+    <form id="upload-form" enctype="multipart/form-data" style="background-color: #FFFFFF; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <input type="file" name="file" accept=".jpg, .jpeg, .png" style="margin: 10px 0; padding: 10px; border-radius: 5px; border: 1px solid #8DBFB3;">
+        <button type="button" onclick="uploadImage()" style="background-color: #459B92; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Enviar Imagem</button>
+    </form>
+
+    <h2 style="color: #FFFFFF; margin-top: 30px;">Resultado</h2>
+    <p style="font-size: 18px; color: #FFFFFF;">Animal previsto: <span id="class-name" style="font-weight: bold; color: #043433;"></span></p>
+    <p style="font-size: 18px; color: #FFFFFF;">Taxa de Assertabilidade: <span id="confidence-score" style="font-weight: bold; color: #043433;"></span>%</p>
+
+    <script>
+        function uploadImage() {
+            var formData = new FormData(document.getElementById("upload-form"));
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('class-name').innerText = data.class_name;
+                document.getElementById('confidence-score').innerText = data.confidence_score + '%';
+            });
+        }
+    </script>
+</body>
+</html>
+
