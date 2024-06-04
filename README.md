@@ -1,7 +1,7 @@
 # GlobalSolution-IA
 Global Solution da matéria de DISRUPTIVE ARCHITECTURES: IOT, IOB &amp; GENERATIVE IA . 2024
 
-# Para rodar o código é necessario o Python 3.11, TensorFlow 2.13.1
+# Para rodar o código é necessario o Python 3.11 e TensorFlow 2.13.1
 
 Grupo
 - Alberto Rubinho - RM 99706
